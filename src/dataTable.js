@@ -8,9 +8,9 @@ const DataTable = (props) => {
     console.log('entered');
     console.log(val);
     let kys = Object.keys(val);
-    let z = kys.map((v) => {
+    let z = kys.map((v, i) => {
       // console.log(val[v]);
-      return <td>{val[v]}</td>;
+      return <td key={i}>{val[v]}</td>;
     });
 
     return z;
@@ -18,8 +18,8 @@ const DataTable = (props) => {
   useEffect(() => {
     console.log(props.searchItem);
     let keys = Object.keys(props.primData[0]);
-    let colms = keys.map((val) => {
-      return <td>{val}</td>;
+    let colms = keys.map((val, i) => {
+      return <td key={i}>{val}</td>;
     });
     setColumns(colms);
 
@@ -37,12 +37,12 @@ const DataTable = (props) => {
         }
       });
       let obj = fil.map((val, i) => {
-        return <tr key={i}>{funcRetrunCols(val)}</tr>;
+        return <tr key={val.id}>{funcRetrunCols(val)}</tr>;
       });
       setData(obj);
     } else {
       let obj = props.primData.map((val, i) => {
-        return <tr key={i}>{funcRetrunCols(val)}</tr>;
+        return <tr key={val.id}>{funcRetrunCols(val)}</tr>;
       });
       setData(obj);
     }
