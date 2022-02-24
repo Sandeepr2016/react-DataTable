@@ -51,7 +51,7 @@ const DataTable = (props) => {
   return (
     <table>
       {/* <tr><td>id</td> <td>id</td></tr> */}
-      <tr>{columns}</tr>
+      <tr key={'col'}>{columns}</tr>
       {data}
     </table>
   );
